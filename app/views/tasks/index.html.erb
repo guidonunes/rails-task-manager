@@ -1,0 +1,16 @@
+<h1 class="text-center m-5">My Tasks</h1>
+
+<div class="container text-center mt-5">
+<ul class="list-display-none">
+  <%@tasks.each do |task|%>
+    <li class="p-3 text-decoration-none ">
+    <input type="checkbox">
+    <%=link_to task.title, task_path(task), class: 'fw-bold'%>
+    <%= link_to 'remove', task_path(task), data: { turbo_method: 'delete'}, class: 'btn btn-danger' %>
+    </li>
+  <%end%>
+</ul>
+<p>
+  <%= link_to 'Add new Task', new_task_path %>
+</p>
+</div>
